@@ -29,7 +29,8 @@ export default function Menu({ items }) {
     const [open, setOpen] = useState(false);
 
     const handleClick = (event, index) => {
-      
+      localStorage.setItem("id",JSON.stringify(index));
+
       prevIndex.changeIndex(index);
       // setChildIndex(prevIndex.childIndex);
       // setSelectedIndex(index);
