@@ -15,11 +15,11 @@ export const MenuList = [
   {
     icon: <LocalLibraryOutlined />,
     title: "Education",
-    id:0,
+    id:2,
     items: [
       {
         title: "Technical Analysis",
-        id:0,
+        id:3,
         items: [
           {
             title: "The Dow Theory",
@@ -45,7 +45,7 @@ export const MenuList = [
       },
       {
         title: "Fundamental Analysis",
-        id:0,
+        id:8,
         items: [
           {
             title: "The Dow Theory1",
@@ -71,7 +71,7 @@ export const MenuList = [
       },
       {
         title: "Elliot Wave Analysis",
-        id:0,
+        id:13,
         items: [
           {
             title: "The Dow Theory",

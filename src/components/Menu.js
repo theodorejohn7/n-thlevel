@@ -4,22 +4,19 @@ import { ListItem } from "@mui/material";
 import { ListItemIcon } from "@mui/material";
 import { ListItemText } from "@mui/material";
 import { Collapse } from "@mui/material";
-import { useLocation } from "react-router-dom";
 import { ExpandLess } from "@mui/icons-material";
 import { ExpandMore } from "@mui/icons-material";
 
- 
- import { Link } from "react-router-dom";
-
- 
+import { ThemeContext } from "./context/ThemeContext";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 export default function Menu({ items }) {
-   
-
+  const prevIndex = useContext(ThemeContext); 
+ 
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   const ListItemBody = ({ config }) => {
-    console.log("config", config);
     return (
       <>
         <ListItemIcon>{config.icon}</ListItemIcon>
@@ -30,22 +27,23 @@ export default function Menu({ items }) {
 
   const MenuItem = ({ config }) => {
     const [open, setOpen] = useState(false);
-    console.log("menu Item", config);
+
     const handleClick = (event, index) => {
-      console.log("Menu item Expandable Menu", config.id);
-      console.log("Menu item  index", index);
-      if(index !== 0)
-{      setSelectedIndex(index);}
+      
+      prevIndex.changeIndex(index);
+      // setChildIndex(prevIndex.childIndex);
+      // setSelectedIndex(index);
+
       setOpen(!open);
-      console.log("selected index", selectedIndex);
+       
     };
     return (
       <ListItem
         button
-        selected={selectedIndex === config.id}
+        selected={prevIndex.childIndex === config.id}
         onClick={(event) => handleClick(event, config.id)}
         // selected={open ? "true" : "false"}
-        sx={{ color: selectedIndex === config.id ? "red" : "black" }}
+        sx={{ color: prevIndex.childIndex === config.id ? "blue" : "black" }}
       >
         <ListItemBody config={config} />
       </ListItem>
@@ -56,12 +54,10 @@ export default function Menu({ items }) {
     const [open, setOpen] = useState(false);
 
     const handleClick = (event, index) => {
-      console.log("Expandable Menu", config.id);
-      console.log("index", index);
-      if(index !== 0)
-{      setSelectedIndex(index);}
+      if (index !== 0) {
+        setSelectedIndex(index);
+      }
       setOpen(!open);
-      console.log("selected index", selectedIndex);
     };
 
     return (
@@ -69,16 +65,17 @@ export default function Menu({ items }) {
         <ListItem
           button
           selected={selectedIndex === config.id}
-        sx={{ color: selectedIndex === config.id ? "red" : "black" }}
-
+          sx={{ color: selectedIndex === config.id ? "red" : "black" }}
           onClick={(event) => handleClick(event, config.id)}
         >
-          <ListItemBody config={config} > <Link to="/delete"></Link></ListItemBody>
+          <ListItemBody config={config}>
+            {" "}
+            <Link to="/delete"></Link>
+          </ListItemBody>
           {open ? <ExpandLess /> : <ExpandMore />}
-          
         </ListItem>
         <Collapse in={open} timeout="auto" unmountOnExit>
-          <Menu items={config.items}  id={config.id} />
+          <Menu items={config.items} id={config.id} />
         </Collapse>
       </div>
     );
@@ -103,6 +100,6 @@ export default function Menu({ items }) {
     });
     return menu.concat();
   };
- 
+
   return <List>{createList(items)}</List>;
 }
