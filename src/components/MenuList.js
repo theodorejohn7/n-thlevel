@@ -9,72 +9,89 @@ export const MenuList = [
   {
     icon: <HomeOutlined />,
     title: "Home",
-    items: []
+    items: [],
+    id:1
   },
   {
     icon: <LocalLibraryOutlined />,
     title: "Education",
+    id:0,
     items: [
       {
         title: "Technical Analysis",
+        id:0,
         items: [
           {
             title: "The Dow Theory",
-            to: "/thedowtheory"
+            to: "/thedowtheory",
+            id:4,
           },
           {
             title: "Charts & Chart Patterns",
-            to: "/chart"
+            to: "/chart",
+            id:5,
           },
           {
             title: "Trend & Trend Lines",
-            to: "/trendlines"
+            to: "/trendlines",
+            id:6,
           },
           {
             title: "Support & Resistance",
-            to: "/sandr"
+            to: "/sandr",
+            id:7,
           }
         ]
       },
       {
         title: "Fundamental Analysis",
+        id:0,
         items: [
           {
             title: "The Dow Theory1",
-            to: "/thedowtheory"
+            to: "/thedowtheory",
+            id:9,
           },
           {
             title: "Charts & Chart Patterns",
-            to: "/chart"
+            to: "/chart",
+            id:10,
           },
           {
             title: "Trend & Trend Lines",
-            to: "/trendlines"
+            to: "/trendlines",
+            id:11,
           },
           {
             title: "Support & Resistance",
-            to: "/sandr"
+            to: "/sandr",
+            id:12,
           }
         ]
       },
       {
         title: "Elliot Wave Analysis",
+        id:0,
         items: [
           {
             title: "The Dow Theory",
-            to: "/thedowtheory"
+            to: "/thedowtheory",
+            id:14,
           },
           {
             title: "Charts & Chart Patterns",
-            to: "/chart"
+            to: "/chart",
+            id:15,
           },
           {
             title: "Trend & Trend Lines",
-            to: "/trendlines"
+            to: "/trendlines",
+            id:16,
           },
           {
             title: "Support & Resistance",
-            to: "/sandr"
+            to: "/sandr",
+            id:17,
           }
         ]
       }
@@ -82,10 +99,22 @@ export const MenuList = [
   },
   {
     icon: <TrendingUpOutlined />,
-    title: "Options"
+    title: "Options",
+    id:18,
   },
   {
     icon: <DescriptionOutlined />,
-    title: "Blog"
+    title: "Blog",
+    id:19,
+  },
+  {
+    icon: <TrendingUpOutlined />,
+    title: "New Tab",
+    id:20,
+  },
+  {
+    icon: <DescriptionOutlined />,
+    title: "Contact us",
+    id:21,
   }
 ];
